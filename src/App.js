@@ -12,7 +12,7 @@ const App = (props) => {
       <header className="App-header">
       
       </header>
-      <ToDoList toDoList={toDos}/>
+      <ToDoList/>
     </div>
   );
 }
