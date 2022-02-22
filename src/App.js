@@ -1,25 +1,43 @@
+import react, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const App = (props) => {
+
+  const [toDos, setToDos] = useState([]);
+
+  const [newTodo, setNewTodo] = useState("");
+
+  useEffect(()=>{
+    console.log("Working?")
+    GetTodos();
+  }, [])
+
+const GetTodos = async () =>{
+  const url = "https://localhost:7228/ToDo";
+  const response = await fetch(url,
+    {
+      mode: 'cors',
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    
+    console.log(data);
+}
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      
       </header>
     </div>
   );
 }
 
 export default App;
+
