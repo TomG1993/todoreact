@@ -1,10 +1,11 @@
 import React from 'react';
+import StatusButton from './StatusButton'
  
 const ToDo = ({todo}) => {
     console.log(todo)
    return (
        <div>
-           {todo.description} - <button>Status</button>
+           {todo.description} - <StatusButton status={todo} />
        </div>
    );
 };

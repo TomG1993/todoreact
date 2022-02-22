@@ -41,7 +41,7 @@ const response = await fetch(url,
 const handleNewToDo = async (e) => {
 
     const newToDoModel = await saveNewToDo();
-    
+
     console.log("setting exercise")
     setToDos(currentToDos => [...currentToDos, newToDoModel]);
 
@@ -64,7 +64,6 @@ const handleNewToDo = async (e) => {
         })
       });
 
-      console.log(response);
       return await response.json();;
   }
 
