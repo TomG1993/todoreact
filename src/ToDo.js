@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import StatusButton from './StatusButton'
  
-const ToDo = ({todo}) => {
-    console.log(todo)
+const ToDo = props => {
+    const [toDo, setToDo] = useState(props);
+    console.log(toDo.todo)
    return (
        <div>
-           {todo.description} - <StatusButton status={todo} />
+           {toDo.todo.description} - <StatusButton todo={toDo.todo} />
        </div>
    );
 };
