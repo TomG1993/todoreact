@@ -9,7 +9,6 @@ const [toDos, setToDos] = useState([]);
 
 
 useEffect(()=>{
-  console.log("Working?")
   GetTodos();
 }, [])
 
@@ -28,7 +27,6 @@ const response = await fetch(url,
 
   var arr = [];
     Object.keys(data).forEach(function (key) {
-      console.log(data[key]);
 
       arr.push(data[key]);
     });
@@ -40,6 +38,10 @@ const response = await fetch(url,
 
 const handleNewToDo = async (e) => {
 
+    if (newTodo.length < 1)
+    {
+        return;
+    }
     const newToDoModel = await saveNewToDo();
 
     console.log("setting exercise")
@@ -77,7 +79,7 @@ const handleNewToDo = async (e) => {
            })}
            <div>        
                <div><input
-          placeholder="ToDo.."
+          placeholder="To-do.."
           value={newTodo}
           onChange={e => setNewTodo(e.target.value)}
           onBlur={e => handleNewToDo(e)}
